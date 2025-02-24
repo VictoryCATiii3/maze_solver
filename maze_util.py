@@ -85,7 +85,7 @@ class Cell:
         move_line.draw_line(self._win.canvas, color)
 
 class Maze:
-    def __init__(self, top_left_point, num_rows, num_collums, cell_size, win):
+    def __init__(self, top_left_point, num_rows, num_collums, cell_size, win=None):
         self._win = win
         self.cells = self._create_cells(top_left_point, num_rows, num_collums, cell_size)
         self._top_left = top_left_point
@@ -112,11 +112,16 @@ class Maze:
         cell.draw()
 
     def _animate(self):
+        if self._win == None:
+            return
         for i in range(self._width):
             for j in range(self._height):
                 self._draw_cell(i, j)
                 self._win.redraw()
                 time.sleep(0.05)
+
+    def _break_entrance_and_exit(self, i, j, side):
+        pass
 
 def main():
     win = Window(800, 600)
