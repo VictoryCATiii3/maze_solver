@@ -132,7 +132,7 @@ class Maze:
             for j in range(self._height):
                 self._draw_cell(i, j)
                 self._win.redraw()
-                time.sleep(0.05)
+                time.sleep(0.01)
 
     def _break_wall(self, i, j, side):
         match side:
